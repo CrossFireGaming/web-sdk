@@ -45,14 +45,6 @@ export default {
 			scale: 2,
 		},
 	},
-	H5: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/symbols/symbols.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols/h5.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
 	L1: {
 		type: 'spine',
 		src: {
@@ -85,22 +77,6 @@ export default {
 			scale: 2,
 		},
 	},
-	M: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols2/M.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
-	S: {
-		type: 'spine',
-		src: {
-			atlas: new URL('../../assets/spines/symbols2/symbols2.atlas', import.meta.url).href,
-			skeleton: new URL('../../assets/spines/symbols2/S.json', import.meta.url).href,
-			scale: 2,
-		},
-	},
 	explosion: {
 		type: 'spine',
 		src: {
@@ -109,7 +85,17 @@ export default {
 			scale: 2,
 		},
 	},
-	W: {
+	// BANG dynamites — both reuse the cluster sample's W (wild_dynamite)
+	// spine as placeholder. Swap to BANG-specific spines when art lands.
+	DS: {
+		type: 'spine',
+		src: {
+			atlas: new URL('../../assets/spines/symbols3/symbols3.atlas', import.meta.url).href,
+			skeleton: new URL('../../assets/spines/symbols3/W.json', import.meta.url).href,
+			scale: 2,
+		},
+	},
+	DB: {
 		type: 'spine',
 		src: {
 			atlas: new URL('../../assets/spines/symbols3/symbols3.atlas', import.meta.url).href,
