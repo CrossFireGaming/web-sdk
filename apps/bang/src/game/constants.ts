@@ -6,211 +6,13 @@ export const SYMBOL_SIZE = 80;
 
 export const REEL_PADDING = 0.53;
 
-// initial board (padded top and bottom)
+// BANG initial board: 5 reels × 7 rows (5 visible + 1 padding top + 1 padding bottom).
 export const INITIAL_BOARD: RawSymbol[][] = [
-	[
-		{
-			name: 'L1',
-		},
-		{
-			name: 'H1',
-		},
-		{
-			name: 'L1',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'H3',
-		},
-	],
-	[
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'H2',
-		},
-	],
-	[
-		{
-			name: 'L3',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'L1',
-		},
-		{
-			name: 'L1',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'H2',
-		},
-	],
-	[
-		{
-			name: 'H4',
-		},
-		{
-			name: 'L1',
-		},
-		{
-			name: 'H2',
-		},
-		{
-			name: 'H2',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'H2',
-		},
-		{
-			name: 'H2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L3',
-		},
-	],
-	[
-		{
-			name: 'L1',
-		},
-		{
-			name: 'L1',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'H1',
-		},
-		{
-			name: 'H1',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L3',
-		},
-	],
-	[
-		{
-			name: 'L1',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'L2',
-		},
-		{
-			name: 'H1',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'H4',
-		},
-		{
-			name: 'H2',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'H2',
-		},
-	],
-	[
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'H1',
-		},
-		{
-			name: 'L3',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'H3',
-		},
-		{
-			name: 'H2',
-		},
-	],
+	[{ name: 'L1' }, { name: 'H4' }, { name: 'L3' }, { name: 'L1' }, { name: 'L2' }, { name: 'H3' }, { name: 'L4' }],
+	[{ name: 'L2' }, { name: 'L1' }, { name: 'H4' }, { name: 'L3' }, { name: 'L1' }, { name: 'L2' }, { name: 'H4' }],
+	[{ name: 'L3' }, { name: 'L2' }, { name: 'DS' }, { name: 'H3' }, { name: 'L4' }, { name: 'L1' }, { name: 'L2' }],
+	[{ name: 'L1' }, { name: 'L4' }, { name: 'L1' }, { name: 'H2' }, { name: 'L3' }, { name: 'DB' }, { name: 'L4' }],
+	[{ name: 'L4' }, { name: 'L1' }, { name: 'L3' }, { name: 'L2' }, { name: 'H4' }, { name: 'L1' }, { name: 'H3' }],
 ];
 
 export const BOARD_DIMENSIONS = { x: INITIAL_BOARD.length, y: INITIAL_BOARD[0].length - 2 };
@@ -239,7 +41,7 @@ export const PORTRAIT_MAIN_SIZES = {
 	height: PORTRAIT_HEIGHT,
 };
 
-export const HIGH_SYMBOLS = ['H1', 'H2', 'H3', 'H4', 'H5'];
+export const HIGH_SYMBOLS = ['H1', 'H2', 'H3', 'H4'];
 
 export const INITIAL_SYMBOL_STATE: SymbolState = 'static';
 
@@ -376,19 +178,6 @@ export const SYMBOL_INFO_MAP = {
 		spin: h4Static,
 		land: h4Static,
 	},
-	H5: {
-		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H5',
-			animationName: 'h5',
-			sizeRatios: { width: 0.5 * 0.9, height: HIGH_SYMBOL_SIZE * 0.53 },
-		},
-		postWinStatic: h5Static,
-		static: h5Static,
-		spin: h5Static,
-		land: h5Static,
-	},
 	L1: {
 		explosion,
 		win: {
@@ -441,7 +230,12 @@ export const SYMBOL_INFO_MAP = {
 		spin: l4Static,
 		land: l4Static,
 	},
-	W: {
+	// BANG dynamites — both wild + area-effect detonation. Until BANG art
+	// lands, both DS and DB reuse the cluster sample's W (wild_dynamite)
+	// sprites/spines as placeholders. Replace assetKey + animationName
+	// with BANG-specific art once delivered.
+	DS: {
+		// Small Dynamite — row + column destroyer
 		explosion,
 		postWinStatic: {
 			type: 'sprite',
@@ -458,22 +252,22 @@ export const SYMBOL_INFO_MAP = {
 			sizeRatios: wSizeRatios,
 		},
 	},
-	S: {
+	DB: {
+		// Big Dynamite — 3x3 destroyer
 		explosion,
-		postWinStatic: sStatic,
-		static: sStatic,
-		spin: {
-			type: 'spine',
-			assetKey: 'S',
-			animationName: 'scatter_spin',
-			sizeRatios: sSizeRatios,
+		postWinStatic: {
+			type: 'sprite',
+			assetKey: 'explodedW.png',
+			sizeRatios: { width: 0.85, height: 0.85 },
 		},
-		win: { type: 'spine', assetKey: 'S', animationName: 'scatter_win', sizeRatios: sSizeRatios },
+		static: wStatic,
+		spin: wStatic,
+		win: { type: 'spine', assetKey: 'W', animationName: 'wild_dynamite', sizeRatios: wSizeRatios },
 		land: {
 			type: 'spine',
-			assetKey: 'S',
-			animationName: 'scatter_land',
-			sizeRatios: sSizeRatios,
+			assetKey: 'W',
+			animationName: 'wild_dynamite_land',
+			sizeRatios: wSizeRatios,
 		},
 	},
 } as const;
