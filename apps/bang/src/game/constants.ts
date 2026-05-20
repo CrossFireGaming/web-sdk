@@ -50,34 +50,42 @@ const HIGH_SYMBOL_SIZE = 0.9;
 const LOW_SYMBOL_SIZE = 0.9;
 const SPECIAL_SYMBOL_SIZE = 1;
 
+// BANG animation timings — tuned to feel snappier than the cluster
+// sample's calmer mining pace. Wild-west "gunslinger" energy:
+// - faster symbol falls (3.5 -> 4.5)
+// - tighter reel-to-reel intervals (30 -> 22)
+// - bouncier landing (0.5 -> 0.7 size, 0.15 -> 0.22 speed)
+// - more motion blur on the symbol streak (31 -> 42)
+// Turbo mode pushed to 8 speed for "spin again" mashers.
+
 const SPIN_OPTIONS_SHARED = {
-	reelFallInDelay: 80,
+	reelFallInDelay: 60,             // was 80 — quicker first-reel-to-second-reel delay
 	reelPaddingMultiplierNormal: 1.25,
 	reelPaddingMultiplierAnticipated: 18,
-	reelFallOutDelay: 145,
+	reelFallOutDelay: 120,           // was 145 — quicker out-cycle on tumble removal
 };
 
 export const SPIN_OPTIONS_DEFAULT = {
 	...SPIN_OPTIONS_SHARED,
-	symbolFallInSpeed: 3.5,
-	symbolFallInInterval: 30,
-	symbolFallInBounceSpeed: 0.15,
-	symbolFallInBounceSizeMulti: 0.5,
-	symbolFallOutSpeed: 3.5,
-	symbolFallOutInterval: 20,
+	symbolFallInSpeed: 4.5,          // was 3.5
+	symbolFallInInterval: 22,        // was 30
+	symbolFallInBounceSpeed: 0.22,   // was 0.15
+	symbolFallInBounceSizeMulti: 0.7, // was 0.5 — punchier landing
+	symbolFallOutSpeed: 4.5,         // was 3.5
+	symbolFallOutInterval: 15,       // was 20
 };
 
 export const SPIN_OPTIONS_FAST = {
 	...SPIN_OPTIONS_SHARED,
-	symbolFallInSpeed: 7,
+	symbolFallInSpeed: 8,            // was 7
 	symbolFallInInterval: 0,
-	symbolFallInBounceSpeed: 0.3,
-	symbolFallInBounceSizeMulti: 0.25,
-	symbolFallOutSpeed: 7,
+	symbolFallInBounceSpeed: 0.35,   // was 0.3
+	symbolFallInBounceSizeMulti: 0.3, // was 0.25
+	symbolFallOutSpeed: 8,           // was 7
 	symbolFallOutInterval: 0,
 };
 
-export const MOTION_BLUR_VELOCITY = 31;
+export const MOTION_BLUR_VELOCITY = 42;  // was 31 — more streak on spin reveal
 
 export const zIndexes = {
 	background: {
